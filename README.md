@@ -12,7 +12,7 @@ The main app logic resides in [App.jsx]() file. Basically, the there're two fiel
 - Name inputfield.
 - Message textarea.
 
-![user-interface]()
+![user-interface](https://github.com/desmigor/xss-vulnerable-app/blob/main/screenshots/user-interface.png)
 
 The message input is printed bellow the form after clicking the "Submit" button. The way the input is printed, it is injected as <u>Raw HTML</u> into the page or evaluate their input as JavaScript code using an empty DIV. Reference to the code below.
 
@@ -28,13 +28,19 @@ As explained above, in this case; any code can be injected in the <u> message te
 ```
 <img onError=alert('Hacked.') src='invalid.url.com'>
 ```
-![bad-code]()
+![bad-code](https://github.com/desmigor/xss-vulnerable-app/blob/main/screenshots/bad-code.png)
 
 ## 4. Fixing Code
 
 The best way to fix this problem, is to use a variable and using in-built <u>append()</u> function instead of printing Raw text. Here is the full code to fix the problem. This will print the input as a variable in string type instead of running it as a code.
 
-![fixed-code]()
+```
+<div id='validation' className='notifyWrapper'>
+{validateMessage}
+</div>
+```
+
+![fixed-code](https://github.com/desmigor/xss-vulnerable-app/blob/main/screenshots/fixed-code.png)
 
 ```
 function App() {
