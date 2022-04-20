@@ -5,6 +5,24 @@
 > [Github Repository](https://github.com/desmigor/xss-vulnerable-app)
 
 ## 0. Deployment instructons with the docker image
+
+To build and tag the docker image, use:
+```
+docker build -t webapp .
+```
+To start the container once the build is done, use:
+```
+docker run \
+    -it \
+    --rm \
+    -v ${PWD}:/app \
+    -v /app/node_modules \
+    -p 3000:3000 \
+    -e CHOKIDAR_USEPOLLING=true \
+    webapp
+```
+The app will be exposed on http://localhost:3000
+
 ## 1. Vulnerability Description
 Cross-site scripting, often abbreviated as XSS, is a type of attack in which malicious scripts are injected into websites and web applications for the purpose of running on the end user's device. During this process, unsanitized or unvalidated inputs (user-entered data) are used to change outputs.
 ## 2. Technical description based on my code
