@@ -4,7 +4,7 @@
 >
 > [Github Repository](https://github.com/desmigor/xss-vulnerable-app)
 
-## 0. Deployment instructons with the docker image
+## 0. Deployment instructions with the docker image
 
 To build and tag the docker image, use:
 ```
